@@ -1,0 +1,32 @@
+package lab2;
+
+import java.sql.*;
+import java.util.*;
+
+public class DerbyDemo1 
+{	private static String connString = "jdbc:derby:/home/russell/squirrel-sql-3.6/Lab2;create=false";
+	private static Connection conn = null;
+
+	public static void main(String[] args)
+	{
+		
+		
+		try
+		{
+			conn = DriverManager.getConnection(connString);
+
+			
+			if(conn != null)
+			{
+				System.out.println("Connected to DB!");
+			}
+			
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+
+}
