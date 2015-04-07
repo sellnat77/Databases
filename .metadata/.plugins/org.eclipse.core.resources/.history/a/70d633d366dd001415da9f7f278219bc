@@ -170,7 +170,7 @@ public class JDBCProject {
 			System.out.println("Enter Software_Team_Name : ");
 			Software_Team_Name  =inScan.nextLine();
 			System.out.println("Enter Room_Name ");
-			Room_Name  =getRooms();
+			Room_Name  =inScan.nextLine();
 			System.out.println("Enter Date (YYYY-MM-DD) ");
 			Date  =inScan.nextLine();
 			Purpose_of_Meeting = getPurposes();

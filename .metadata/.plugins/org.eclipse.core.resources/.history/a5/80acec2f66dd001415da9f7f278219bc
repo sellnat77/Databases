@@ -170,7 +170,7 @@ public class JDBCProject {
 			System.out.println("Enter Software_Team_Name : ");
 			Software_Team_Name  =inScan.nextLine();
 			System.out.println("Enter Room_Name ");
-			Room_Name  =getRooms();
+			Room_Name  =inScan.nextLine();
 			System.out.println("Enter Date (YYYY-MM-DD) ");
 			Date  =inScan.nextLine();
 			Purpose_of_Meeting = getPurposes();
@@ -318,7 +318,7 @@ public class JDBCProject {
 				System.out.print(rsmd.getColumnLabel(i)+"\t");  
 			}
 
-			System.out.println("\n-----------------------------------------------------------------------------------");
+			System.out.println("\n-------------------------------------------------");
 			while(results.next())
 			{
 				String Software_Team_Name  = results.getString(1);               
@@ -410,47 +410,6 @@ public class JDBCProject {
 			System.out.println("Which purpose?");
 			Purpose  =inScan.nextLine();
 			return Purpose;
-		}
-		catch (SQLException sqlExcept)
-		{
-			sqlExcept.printStackTrace();
-			return null;
-		}
-	}
-	
-	public static String getRooms()
-	{
-		try {
-			int k=0;
-			String Room;
-			stmt = connection.createStatement();
-			ResultSet results = stmt.executeQuery("select distinct Room_Name from `Conference_Rooms`;");
-			ResultSetMetaData rsmd = results.getMetaData();
-			int numberCols = rsmd.getColumnCount();
-			
-			for (int i=1; i<=numberCols; i++)
-			{
-				//print Column Names
-				System.out.print(rsmd.getColumnLabel(i)+"\t");  
-			}
-
-			System.out.println("\n-------------------------------------------------");
-			while(results.next())
-			{
-				k++;
-				String Room_Name  = results.getString(1);               
-
-				System.out.format("%s\n", Room_Name);
-
-			}
-			System.out.println("");
-			results.close();
-			rsmd=null;
-			stmt.close();
-			
-			System.out.println("Which room?");
-			Room  =inScan.nextLine();
-			return Room;
 		}
 		catch (SQLException sqlExcept)
 		{
